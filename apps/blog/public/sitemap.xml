@@ -11,7 +11,7 @@
     <loc>https://young-dev-blog.vercel.app/kbar-support</loc>
   </url>
   <url>
-    <loc>https://young-dev-blog.vercel.app/markdown</loc>
+    <loc>https://young-dev-blog.vercel.app/초기 세팅법</loc>
   </url>
   <url>
     <loc>https://young-dev-blog.vercel.app/foo</loc>
@@ -22,6 +22,9 @@
 
   <url>
     <loc>https://young-dev-blog.vercel.app/category/Guide</loc>
+  </url>
+  <url>
+    <loc>https://young-dev-blog.vercel.app/category/ReactNative</loc>
   </url>
   <url>
     <loc>https://young-dev-blog.vercel.app/category/생각정리</loc>

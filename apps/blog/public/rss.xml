@@ -237,6 +237,122 @@
 <p><img src="https://velog.velcdn.com/images/willy4202/post/21580dd2-a511-4a5a-914b-4eee2c86fd17/image.jpg" alt=""></p>]]>
     </content:encoded>
   </item><item>
+    <title><![CDATA[M1 맥북 리액트 네이티브 초기 세팅법]]></title>
+    <link>https://young-dev-blog.vercel.app/초기 세팅법</link>
+    <pubDate>2022-06-08</pubDate>
+    <guid isPermaLink="false">https://young-dev-blog.vercel.app/초기 세팅법</guid>
+    <description>
+    <![CDATA[도움이 됐으면 좋겠네요]]>
+    </description>
+    <content:encoded>
+      <![CDATA[<p>react native를 이용해 헬스케어 관련 프로젝트를 진행하게 됐다. 지금까지 웹 프로그래밍만 진행해오다 처음 시작하는 프로젝트인지라 모든게 생소했다. 하지만 react와 비슷한 형태로 ios, android 앱을 만들 수 있다는 것은 큰 메리트라 생각한다.</p>
+<p>철저하게 m1맥의 입장에서 진행했으며, 잘 보고 따라하시면 문제 없이 프로젝트를 시작할 수 있다!</p>
+<h2 id="설치하기" class="heading">설치하기</h2>
+<p>먼저 리액트 네이티브의 개발 방식은 크게 <code>Expo cli</code>와 <code>React Native cli</code>로 나뉜다. 이는 패키지 형태와 기본 형태로 나눠서 개발할 수 있는 셈이다.</p>
+<p><code>Expo</code>로 시작하면 편하게 세팅할 수 있지만, 나중에 <code>Eject</code>라는 과정을 거쳐야하고, 프로젝트가 커질수록, 네이티브 모듈을 추가하거나 커스텀할 때 번거로움이 생긴다. 그러나 일일이 설치해줘야하는 것들이 적고, 바로 앱 시뮬레이터를 돌려볼 수 있다.</p>
+<p><code>React Native Cli</code>는 처음 세팅해줘야할 것은 많지만, 높은 자유도와 범용성으로 프로젝트가 길어지거나 규모가 커질때 유연하게 대처할 수 있다.</p>
+<p>이번 시간에는 <code>React Native Cli</code> 위주로 설치하는 방법을 알아보자.</p>
+<hr>
+<h3 id="1-node">1. node</h3>
+<p>homebrew를 이용해서 먼저 node부터 설치해주자.
+버전은 node -v로 확인할 수 있다.</p>
+<pre><code class="code-highlight"><span class="code-line">brew install node
+</span><span class="code-line">brew install watchman
+</span></code></pre>
+<p>그리고 파일 변경 추적을 위해 <code>watchman</code>도 설치해주자.</p>
+<h3 id="2-ios-세팅">2. IOS 세팅</h3>
+<p>이젠 IOS 개발을 위해 app store에서 <code>xCode</code>를 설치해주자.
+비록 1.5점의 평가를 받은 비운의 어플이지만 이게 없으면 시도조차 하지 못한다.</p>
+<p>Xcode를 열고 메뉴에서 <code>preferences</code>를 선택해주고
+<code>locations</code>에서 <code>command line tools</code>에서 최신버전을 선택해주면 된다.</p>
+<p><img src="https://velog.velcdn.com/images/willy4202/post/cc134366-32de-4bd6-8f37-2ba1f3953ae5/image.png" alt=""></p>
+<h4 id="cocoapods">cocoaPods</h4>
+<p>해당 툴은 IOS 개발에 사용되는 의존성 관리자다.</p>
+<p>react-native로 앱 개발을 하려면 꼭 필요하니 설치해주자.
+설치가 완료되면 버전 확인을 해주자.
+문제 없이 설치 된다면 다음 스텝으로 넘어가면 된다.</p>
+<pre><code class="code-highlight"><span class="code-line">sudo gem install cocoapods
+</span><span class="code-line">pod --version
+</span></code></pre>
+<p><img src="https://velog.velcdn.com/images/willy4202/post/ebd9f2e9-cb0f-45ed-b9a0-498e3a434a14/image.png" alt=""></p>
+<h3 id="3-andoroid-세팅">3. Andoroid 세팅</h3>
+<p>이제 안드로이드 세팅이다. 안드로이드 앱 개발에 필요한 Java Development Kit이라는 <code>JDK</code>를 설치해주면 되는데, homebrew도 좋지만 m1 맥북 사용자라면 직접 java 홈페이지에서 설치하는 것을 추천한다.</p>
+<p><code>java jdk</code>라고 검색 후 오라클 페이지로 들어가자
+<img src="https://velog.velcdn.com/images/willy4202/post/90109603-41a6-4438-b049-c1d267bd7bb9/image.png" alt=""></p>
+<p>가장 왼쪽에 있는 java 다운로드에 들어가서 아래로 조금 내려보면
+툴킷을 다운받을 수 잇다. 이때 Arm64라는 녀석을 다운받아주자..
+이전에 작성된 블로그를 보고 따라하다가 괜히 인텔 버전을 받기라도하면,,
+그 긴 시간을 다시 할애해야하니 애초에 잘 보고 다운받는 습관을 들이자.</p>
+<p><img src="https://velog.velcdn.com/images/willy4202/post/04f17164-df79-4f6c-b9aa-a852bb6fd7f4/image.png" alt=""></p>
+<p>이후에 마찬가지로 버전을 확인해주자.</p>
+<pre><code class="code-highlight"><span class="code-line">java -version
+</span><span class="code-line">javac -version // java 컴파일러
+</span></code></pre>
+<p><img src="https://velog.velcdn.com/images/willy4202/post/65465a06-8cfe-4058-b725-e352ae691f54/image.png" alt=""></p>
+<p><img src="https://velog.velcdn.com/images/willy4202/post/461a9257-e29a-48bd-a356-cbeaaa7a555f/image.png" alt=""></p>
+<p>아직 끝이 아니다.
+안드로이드 스튜디오를 설치해줘야한다.
+아마 이게 가장 많은 시간을 소요할 것이다.</p>
+<p>구글에 <code>안드로이드 스튜디오</code>를 검색해서 설치 파일을 내려받자.</p>
+<p>일반적인 설치 플로우다.
+다만 개발자스럽게 하려면 <code>install type</code>이란 화면이 나온다.
+이때 과감하게 <code>custom</code>을 선택하고 넘어가자.
+그리고 ui모드가 나오는데 당연히 국룰은 다크모드다</p>
+<p><img src="https://velog.velcdn.com/images/willy4202/post/4dc8e4b9-96a9-44e0-9bbb-2f9c15892c4e/image.png" alt=""></p>
+<p>이제 이동하면 SDK Components Setup 화면을 볼 수 있다.
+여기서 Android Virtual Device를 선택하고 Next 버튼을 눌러 설치를 진행해주자.</p>
+<p>이때 performance에 intel은 본인의 맥북이 intel 칩셋이라면 선택해도 된다.
+아니라면 넘겨주자.</p>
+<blockquote>
+<p>Intel의 HAXM(Hardware Accelerated Execution Manager) HAXM은 Intel CPU를 실행하는 컴퓨터에 대한 가상화 엔진입니다. - MS Build</p>
+</blockquote>
+<p>이후부터는 일반적인 소프트웨어 설치 과정과 동일하니 Finsh를 눌러 스튜디오 설정을 완료해주면 된다.</p>
+<p>안드로이드 스튜디오 설치가 완료되면 실행을 확인하고 다음 스텝으로 넘겨주면 된다.
+<img src="https://velog.velcdn.com/images/willy4202/post/c064c5f1-1565-4eaa-b8e4-f056ddc58242/image.png" alt=""></p>
+<hr>
+<p>여기서부터는 조금 주의해야한다. 커스터마이즈를 눌러준 다음 아래 보이는 주황글씨의 all settings를 눌러 이동해주자.</p>
+<p><img src="https://velog.velcdn.com/images/willy4202/post/c05c73a1-ae3a-454e-9990-018ac09f0ada/image.png" alt=""></p>
+<p>제대로 찾아서 들어갔다면 다음과 같은 화면을 볼 수 있을 것이다.</p>
+<p><img src="https://velog.velcdn.com/images/willy4202/post/06a113fa-2165-4fe3-87fe-464ba9ba2202/image.png" alt=""></p>
+<p>오른쪽 하단의 show package Detail을 눌러 다음과 같은 리스트를 찾아 설치해주면 된다.</p>
+<ul>
+<li>Android SDK Platform 29</li>
+<li>ARM 64 v8a system image</li>
+<li>Google APIs ARM 64 v8a System Image</li>
+<li>Google Play ARM x86 Atom_64 System Image</li>
+</ul>
+<p>m1 사용자들은 인텔이 아닌 ARM을 선택해주자,, 사실 이것때문에 쓴 글이니 주의하길 바란다.
+<img src="https://velog.velcdn.com/images/willy4202/post/6521e4ef-ec40-4c1e-8def-399b758e10f2/image.png" alt=""></p>
+<hr>
+<p>다음은 환경 변수 설정이다. 스튜디오를 환경변수에 등록해줘야 제대로 작동하는 것을 볼 수 있다.</p>
+<pre class="language-js"><code class="language-js code-highlight"><span class="code-line"># <span class="token keyword module">export</span> <span class="token constant">ANDROID_HOME</span><span class="token operator">=</span>$<span class="token constant">HOME</span><span class="token operator">/</span><span class="token maybe-class-name">Library</span><span class="token operator">/</span><span class="token maybe-class-name">Android</span><span class="token operator">/</span>sdk
+</span><span class="code-line"><span class="token keyword module">export</span> <span class="token constant">ANDROID_HOME</span><span class="token operator">=</span>자신의 안드로이드<span class="token constant">SDK</span> 위치<span class="token operator">/</span><span class="token maybe-class-name">Android</span><span class="token operator">/</span>sdk
+</span><span class="code-line"><span class="token keyword module">export</span> <span class="token constant">PATH</span><span class="token operator">=</span>$<span class="token constant">PATH</span><span class="token operator">:</span>$<span class="token constant">ANDROID_HOME</span><span class="token operator">/</span>emulator
+</span><span class="code-line"><span class="token keyword module">export</span> <span class="token constant">PATH</span><span class="token operator">=</span>$<span class="token constant">PATH</span><span class="token operator">:</span>$<span class="token constant">ANDROID_HOME</span><span class="token operator">/</span>tools
+</span><span class="code-line"><span class="token keyword module">export</span> <span class="token constant">PATH</span><span class="token operator">=</span>$<span class="token constant">PATH</span><span class="token operator">:</span>$<span class="token constant">ANDROID_HOME</span><span class="token operator">/</span>tools<span class="token operator">/</span>bin
+</span><span class="code-line"><span class="token keyword module">export</span> <span class="token constant">PATH</span><span class="token operator">=</span>$<span class="token constant">PATH</span><span class="token operator">:</span>$<span class="token constant">ANDROID_HOME</span><span class="token operator">/</span>platform<span class="token operator">-</span>tools
+</span></code></pre>
+<p>위에 코드를 복사해서 그대로 zsh, bash에 붙여주면 된다.</p>
+<pre><code class="code-highlight"><span class="code-line">source ~/.zshrc
+</span></code></pre>
+<p>환경변수를 제대로 적용했다면 터미널을 열고 <code>adb</code>를 입력해서 확인해보자</p>
+<p><img src="https://velog.velcdn.com/images/willy4202/post/ad13fddd-e21a-402c-b2c5-1c4823abae1c/image.png" alt=""></p>
+<hr>
+<h2 id="실행" class="heading">실행</h2>
+<p>이제 모든 설치과정을 끝냈다. CRA를 통해 리액트 네이티브 프로젝트를 실행해보자. 리액트에 익숙한 사람이라면 비슷한 과정이라 금방할 수 있을 거라 생각한다.</p>
+<pre class="language-js"><code class="language-js code-highlight"><span class="code-line">npx react<span class="token operator">-</span>native<span class="token operator">-</span> init <span class="token maybe-class-name">AwsomeProject</span>
+</span></code></pre>
+<p>터미널에서 해당 코드를 실행하고, ios, android가 무사히 작동하는지 알아보자</p>
+<pre><code class="code-highlight"><span class="code-line">npm run ios
+</span><span class="code-line">npm run andriod
+</span></code></pre>
+<p><img src="https://velog.velcdn.com/images/willy4202/post/3ddb9b51-4c51-4def-906b-317c7840ac19/image.png" alt=""></p>
+<p><img src="https://velog.velcdn.com/images/willy4202/post/de8f5cfd-6831-40cf-9172-1dca29636b98/image.png" alt=""></p>
+<p>이제 제대로 리액트 네이티브를 배워보는 시간을 가지면 된다!
+모두 화이팅,,!</p>
+<h4 id="두번다시-나같은-실수를-하지-않길-바라며-글-마무리하겠다">두번다시 나같은 실수를 하지 않길 바라며,, 글 마무리하겠다.</h4>]]>
+    </content:encoded>
+  </item><item>
     <title><![CDATA[Comet land guide]]></title>
     <link>https://young-dev-blog.vercel.app/how-to-start</link>
     <pubDate>2022-03-26</pubDate>
@@ -403,161 +519,6 @@
 </ul>
 <h2 id="license" class="heading">License</h2>
 <p>MIT</p>]]>
-    </content:encoded>
-  </item><item>
-    <title><![CDATA[Markdown Examples]]></title>
-    <link>https://young-dev-blog.vercel.app/markdown</link>
-    <pubDate>2022-03-01</pubDate>
-    <guid isPermaLink="false">https://young-dev-blog.vercel.app/markdown</guid>
-    <description>
-    <![CDATA[example for writing markdown]]>
-    </description>
-    <content:encoded>
-      <![CDATA[<h2 id="h2-heading" class="heading">h2 heading</h2>
-<h3 id="h3-heading">h3 heading</h3>
-<h4 id="h4-heading">h4 heading</h4>
-<h5 id="h5-heading">h5 heading</h5>
-<h6 id="h6-heading">h6 heading</h6>
-<h2 id="emphasis" class="heading">Emphasis</h2>
-<p><strong>This is bold text</strong></p>
-<p><em>This is italic text</em></p>
-<p><del>this is delete</del></p>
-<h2 id="blockquotes" class="heading">Blockquotes</h2>
-<blockquote>
-<p>Develop. Preview. Ship. – Vercel</p>
-</blockquote>
-<h3 id="nested">nested</h3>
-<blockquote>
-<blockquote>
-<p>great power comes great responsibility</p>
-<p>— at spider man</p>
-</blockquote>
-<p>This is <strong>awesome</strong>.</p>
-<p>— hyesungoh</p>
-</blockquote>
-<h2 id="lists" class="heading">Lists</h2>
-<p>Unordered</p>
-<ul>
-<li>Lorem ipsum dolor.
-<ul>
-<li>foo
-<ul>
-<li>bar</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>sit amet consectetur adipisicing elit.</li>
-<li>Iure, delectus.</li>
-</ul>
-<p>Ordered</p>
-<ol>
-<li>Lorem ipsum dolor.
-<ol>
-<li>lorem
-<ol>
-<li>foo</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>sit amet consectetur adipisicing elit.</li>
-<li>Iure, delectus.</li>
-</ol>
-<h2 id="code" class="heading">Code</h2>
-<p>Inline <code>code</code></p>
-<pre class="language-js"><code class="language-js code-highlight"><span class="code-line"><span class="token keyword module">import</span> <span class="token imports">styled</span> <span class="token keyword module">from</span> <span class="token string">'@emotion/styled'</span><span class="token punctuation">;</span>
-</span><span class="code-line">
-</span><span class="code-line"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">Foo</span></span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> bar <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-</span><span class="code-line">  <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span>
-</span><span class="code-line">    <span class="token operator">&#x3C;</span>div<span class="token operator">></span>
-</span><span class="code-line">      <span class="token operator">&#x3C;</span><span class="token constant">H1</span><span class="token operator">></span><span class="token maybe-class-name">Comet</span><span class="token operator">-</span>land<span class="token operator">&#x3C;</span><span class="token operator">/</span><span class="token constant">H1</span><span class="token operator">></span>
-</span><span class="code-line">    <span class="token operator">&#x3C;</span><span class="token operator">/</span>div<span class="token operator">></span>
-</span><span class="code-line">  <span class="token punctuation">)</span><span class="token punctuation">;</span>
-</span><span class="code-line"><span class="token punctuation">}</span>
-</span><span class="code-line">
-</span><span class="code-line"><span class="token keyword">const</span> <span class="token constant">H1</span> <span class="token operator">=</span> styled<span class="token punctuation">.</span><span class="token property-access">h1</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token css language-css">
-</span></span></span><span class="code-line"><span class="token template-string"><span class="token css language-css">  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span><span class="token punctuation">;</span>
-</span></span></span><span class="code-line"><span class="token template-string"><span class="token css language-css"></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
-</span></code></pre>
-<p>with line highlight</p>
-<pre class="language-js"><code class="language-js code-highlight"><span class="code-line highlight-line"><span class="token keyword module">import</span> <span class="token imports">styled</span> <span class="token keyword module">from</span> <span class="token string">'@emotion/styled'</span><span class="token punctuation">;</span>
-</span><span class="code-line">
-</span><span class="code-line"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">Foo</span></span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> bar <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-</span><span class="code-line">  <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span>
-</span><span class="code-line">    <span class="token operator">&#x3C;</span>div<span class="token operator">></span>
-</span><span class="code-line">      <span class="token operator">&#x3C;</span><span class="token constant">H1</span><span class="token operator">></span><span class="token maybe-class-name">Comet</span><span class="token operator">-</span>land<span class="token operator">&#x3C;</span><span class="token operator">/</span><span class="token constant">H1</span><span class="token operator">></span>
-</span><span class="code-line">    <span class="token operator">&#x3C;</span><span class="token operator">/</span>div<span class="token operator">></span>
-</span><span class="code-line">  <span class="token punctuation">)</span><span class="token punctuation">;</span>
-</span><span class="code-line"><span class="token punctuation">}</span>
-</span><span class="code-line">
-</span><span class="code-line highlight-line"><span class="token keyword">const</span> <span class="token constant">H1</span> <span class="token operator">=</span> styled<span class="token punctuation">.</span><span class="token property-access">h1</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token css language-css">
-</span></span></span><span class="code-line highlight-line"><span class="token template-string"><span class="token css language-css">  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span><span class="token punctuation">;</span>
-</span></span></span><span class="code-line highlight-line"><span class="token template-string"><span class="token css language-css"></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
-</span></code></pre>
-<p>with line number</p>
-<pre class="language-js"><code class="language-js code-highlight"><span class="code-line line-number highlight-line" line="1"><span class="token keyword module">import</span> <span class="token imports">styled</span> <span class="token keyword module">from</span> <span class="token string">'@emotion/styled'</span><span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="2">
-</span><span class="code-line line-number highlight-line" line="3"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token keyword">function</span> <span class="token function"><span class="token maybe-class-name">Foo</span></span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> bar <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-</span><span class="code-line line-number" line="4">  <span class="token keyword control-flow">return</span> <span class="token punctuation">(</span>
-</span><span class="code-line line-number" line="5">    <span class="token operator">&#x3C;</span>div<span class="token operator">></span>
-</span><span class="code-line line-number" line="6">      <span class="token operator">&#x3C;</span><span class="token constant">H1</span><span class="token operator">></span><span class="token maybe-class-name">Comet</span><span class="token operator">-</span>land<span class="token operator">&#x3C;</span><span class="token operator">/</span><span class="token constant">H1</span><span class="token operator">></span>
-</span><span class="code-line line-number" line="7">    <span class="token operator">&#x3C;</span><span class="token operator">/</span>div<span class="token operator">></span>
-</span><span class="code-line line-number" line="8">  <span class="token punctuation">)</span><span class="token punctuation">;</span>
-</span><span class="code-line line-number" line="9"><span class="token punctuation">}</span>
-</span><span class="code-line line-number" line="10">
-</span><span class="code-line line-number" line="11"><span class="token keyword">const</span> <span class="token constant">H1</span> <span class="token operator">=</span> styled<span class="token punctuation">.</span><span class="token property-access">h1</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token css language-css">
-</span></span></span><span class="code-line line-number" line="12"><span class="token template-string"><span class="token css language-css">  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token color">red</span><span class="token punctuation">;</span>
-</span></span></span><span class="code-line line-number" line="13"><span class="token template-string"><span class="token css language-css"></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
-</span></code></pre>
-<h2 id="links" class="heading">Links</h2>
-<ul>
-<li><a href="https://nextjs.org" target="_blank" rel="noopener noreferer">Next.js</a></li>
-<li><a href="http://vercel.com" target="_blank" rel="noopener noreferer">Vercel</a></li>
-</ul>
-<h3 id="autolink">Autolink</h3>
-<p><a href="http://www.example.com" target="_blank" rel="noopener noreferer">www.example.com</a>, <a href="https://example.com" target="_blank" rel="noopener noreferer">https://example.com</a>, and <a href="mailto:contact@example.com">contact@example.com</a>.</p>
-<h2 id="footnote" class="heading">Footnote</h2>
-<p>A note<sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref aria-describedby="footnote-label">1</a></sup></p>
-<h2 id="table" class="heading">Table</h2>
-<table>
-<thead>
-<tr>
-<th align="left">Syntax</th>
-<th align="center">Description</th>
-<th align="right">Test Text</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Header</td>
-<td align="center">Title</td>
-<td align="right">Here's this</td>
-</tr>
-<tr>
-<td align="left">Paragraph</td>
-<td align="center">Text</td>
-<td align="right">And more</td>
-</tr>
-<tr>
-<td align="left">Strikethrough</td>
-<td align="center"></td>
-<td align="right"><del>Text</del></td>
-</tr>
-</tbody>
-</table>
-<h2 id="tasklist" class="heading">Tasklist</h2>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled> to do</li>
-<li class="task-list-item"><input type="checkbox" checked disabled> done</li>
-</ul>
-<section data-footnotes class="footnotes"><h2 id="footnote-label" class="sr-only heading">Footnotes</h2>
-<ol>
-<li id="user-content-fn-1">
-<p>Big note. <a href="#user-content-fnref-1" data-footnote-backref class="data-footnote-backref" aria-label="Back to content">↩</a></p>
-</li>
-</ol>
-</section>]]>
     </content:encoded>
   </item><item>
     <title><![CDATA[Support KBar]]></title>
