@@ -5,23 +5,85 @@
   </url>
 
   <url>
-    <loc>https://young-dev-blog.vercel.app/how-to-start</loc>
+    <loc>https://young-dev-blog.vercel.app/2022-06-26 css</loc>
   </url>
   <url>
-    <loc>https://young-dev-blog.vercel.app/kbar-support</loc>
+    <loc>https://young-dev-blog.vercel.app/2022-06-13 Promise</loc>
   </url>
   <url>
-    <loc>https://young-dev-blog.vercel.app/초기 세팅법</loc>
+    <loc>https://young-dev-blog.vercel.app/2022-07-24 비동기</loc>
   </url>
   <url>
-    <loc>https://young-dev-blog.vercel.app/foo</loc>
+    <loc
+      >https://young-dev-blog.vercel.app/2022-07-25 그래서 RESTful 하다는 게
+      뭔데요?</loc
+    >
   </url>
   <url>
-    <loc>https://young-dev-blog.vercel.app/DP 그거 어떻게 하는건데</loc>
+    <loc>https://young-dev-blog.vercel.app/2022-07-26 좋은 코드란</loc>
+  </url>
+  <url>
+    <loc
+      >https://young-dev-blog.vercel.app/2022-07-27 개발 상식에 대해
+      알아보자</loc
+    >
+  </url>
+  <url>
+    <loc
+      >https://young-dev-blog.vercel.app/2022-07-28 호이스팅과 클로저에
+      대해서</loc
+    >
+  </url>
+  <url>
+    <loc>https://young-dev-blog.vercel.app/2022-06-08 초기 세팅법</loc>
+  </url>
+  <url>
+    <loc>https://young-dev-blog.vercel.app/coreComponent</loc>
+  </url>
+  <url>
+    <loc>https://young-dev-blog.vercel.app/2022-05-07 빠따</loc>
+  </url>
+  <url>
+    <loc>https://young-dev-blog.vercel.app/2022-05-21 새로운</loc>
+  </url>
+  <url>
+    <loc>https://young-dev-blog.vercel.app/2022-06-22 부트캠프를 끝내며...</loc>
+  </url>
+  <url>
+    <loc>https://young-dev-blog.vercel.app/능력</loc>
+  </url>
+  <url>
+    <loc
+      >https://young-dev-blog.vercel.app/2022-07-27 DP 그거 어떻게 하는건데</loc
+    >
+  </url>
+  <url>
+    <loc>https://young-dev-blog.vercel.app/2022-06-23 컨텍스트</loc>
+  </url>
+  <url>
+    <loc>https://young-dev-blog.vercel.app/2022-06-26 this</loc>
+  </url>
+  <url>
+    <loc>https://young-dev-blog.vercel.app/2022-07-06 this</loc>
+  </url>
+  <url>
+    <loc>https://young-dev-blog.vercel.app/2022-07-29 콜백함수</loc>
+  </url>
+  <url>
+    <loc>https://young-dev-blog.vercel.app/2022-07-30 클로저</loc>
+  </url>
+  <url>
+    <loc>https://young-dev-blog.vercel.app/Aws</loc>
+  </url>
+  <url>
+    <loc>https://young-dev-blog.vercel.app/테스팅</loc>
   </url>
 
   <url>
-    <loc>https://young-dev-blog.vercel.app/category/Guide</loc>
+    <loc>https://young-dev-blog.vercel.app/category/Css</loc>
+  </url>
+  <url>
+    <loc>https://young-dev-blog.vercel.app/category/Javascript</loc>
   </url>
   <url>
     <loc>https://young-dev-blog.vercel.app/category/ReactNative</loc>
@@ -31,5 +93,11 @@
   </url>
   <url>
     <loc>https://young-dev-blog.vercel.app/category/알고리즘</loc>
+  </url>
+  <url>
+    <loc>https://young-dev-blog.vercel.app/category/코어자바스크립트</loc>
+  </url>
+  <url>
+    <loc>https://young-dev-blog.vercel.app/category/프로그래밍</loc>
   </url>
 </urlset>
