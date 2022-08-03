@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://comet-land-blog.vercel.app</loc>
+    <loc>https://young-dev-blog.vercel.app</loc>
   </url>
 
   <url>
-    <loc>https://comet-land-blog.vercel.app/bar</loc>
+    <loc>https://young-dev-blog.vercel.app/how-to-start</loc>
   </url>
   <url>
-    <loc>https://comet-land-blog.vercel.app/foo</loc>
+    <loc>https://young-dev-blog.vercel.app/kbar-support</loc>
   </url>
   <url>
-    <loc>https://comet-land-blog.vercel.app/how-to-start</loc>
+    <loc>https://young-dev-blog.vercel.app/markdown</loc>
   </url>
   <url>
-    <loc>https://comet-land-blog.vercel.app/kbar-support</loc>
+    <loc>https://young-dev-blog.vercel.app/foo</loc>
   </url>
   <url>
-    <loc>https://comet-land-blog.vercel.app/markdown</loc>
+    <loc>https://young-dev-blog.vercel.app/DP 그거 어떻게 하는건데</loc>
   </url>
 
   <url>
-    <loc>https://comet-land-blog.vercel.app/category/Bar</loc>
+    <loc>https://young-dev-blog.vercel.app/category/Guide</loc>
   </url>
   <url>
-    <loc>https://comet-land-blog.vercel.app/category/Foo</loc>
+    <loc>https://young-dev-blog.vercel.app/category/생각정리</loc>
   </url>
   <url>
-    <loc>https://comet-land-blog.vercel.app/category/Guide</loc>
+    <loc>https://young-dev-blog.vercel.app/category/알고리즘</loc>
   </url>
 </urlset>
